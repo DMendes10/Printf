@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   printf.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diomende <diomende@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: diogo <diogo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 20:36:26 by diomende          #+#    #+#             */
-/*   Updated: 2025/05/01 19:41:38 by diomende         ###   ########.fr       */
+/*   Updated: 2025/05/03 19:15:42 by diogo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ int		ft_choose_format(char c, va_list args);
 int		ft_putnbr(int n);
 int		ft_putunint(unsigned int n);
 int		ft_puthexa(unsigned int n, char c);
-int		ft_putpointer(void *ptr, int base, char *set);
+int	    ft_putpointer(void *ptr, int base, char *set, unsigned int loopstoper);
 
 #endif

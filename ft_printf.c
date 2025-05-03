@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diomende <diomende@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: diogo <diogo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 16:19:15 by diomende          #+#    #+#             */
-/*   Updated: 2025/05/01 19:42:15 by diomende         ###   ########.fr       */
+/*   Updated: 2025/05/03 20:47:49 by diogo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_choose_format(char c, va_list args)
 	else if (c == 'u')
 		return (ft_putunint(va_arg (args, unsigned int)));
 	else if (c == 'p')
-		return (ft_putpointer(va_arg (args, void *), 16, "123456789abcdef"));
+		return (ft_putpointer(va_arg (args, void *), 16, "0123456789abcdef", 0));
 	else if (c == 'x')
 		return (ft_puthexa(va_arg (args, unsigned int), c));
 	else if (c == 'X')
@@ -38,8 +38,8 @@ int	ft_choose_format(char c, va_list args)
 int	ft_printf(const char *s, ...)
 {
 	va_list	args;
-	int	i;
-	int	counter;
+	unsigned int	i;
+	unsigned int	counter;
 	
 	if (!s)
 		return (-1);
@@ -52,10 +52,12 @@ int	ft_printf(const char *s, ...)
 		{
 			counter += ft_choose_format(s[i + 1], args);
 			i += 2;
+			// printf ("%u\n", counter);
 		}
 		else
 		{
 			counter += ft_putchar (s[i]);
+			// printf ("%u\n", counter);
 			i++;
 		}
 	}
@@ -69,6 +71,40 @@ int	ft_printf(const char *s, ...)
 
 int	main(void)
 {
+	// char *c = "ola";
+	// int d = 2147483647;
+	// int d1 = -2147483648;
+	// int d2 = 0;
+	// int hexa = 123456789;
+
+	// printf("%d", printf("%X %X %X %X\n", INT_MAX, INT_MIN, 0, -42));
+	// ft_printf("%d",ft_printf("%X %X %X %X\n", INT_MAX, INT_MIN, 0, -42));
+	
+
+	// printf ("%d\n", printf("%x %x %x %x\n", INT_MAX, INT_MIN, 0, -42));
+	// ft_printf ("%d\n", ft_printf("%x %x %x %x\n", INT_MAX, INT_MIN, 0, -42));
+	
+	// printf(" printf out\n%d printf length\n", printf("%%%c%%%s%%%d%%%i%%%u%%%x%%%X%%%%\
+	// 		%%%c%%%s%%%d%%%i%%%u%%%x%%%X%%%% %%%c%%%s%%%d%%%i%%%u%%%x%%%X%%%%\
+	// 		%c%%", 'A', "42", 42, 42, 42, 42, 42, 'B', "-42", -42, -42, -42,\
+	// 		-42, 42, 'C', "0", 0, 0, 0, 0, 42, 0));
+	// printf(" ft_printf out\n%d ft_printf length\n", ft_printf("%%%c%%%s%%%d%%%i%%%u%%%x%%%X%%%%\
+	// 		%%%c%%%s%%%d%%%i%%%u%%%x%%%X%%%% %%%c%%%s%%%d%%%i%%%u%%%x%%%X%%%%\
+	// 		%c%%", 'A', "42", 42, 42, 42, 42, 42, 'B', "-42", -42, -42, -42,\
+	// 		-42, 42, 'C', "0", 0, 0, 0, 0, 42, 0));
+
+	// void *ptr = (void *)0x1234abcd;
+	// unsigned int hex = 305441741; // 0x1234ABCD
+
+	// ft_printf("Pointer: %p\n", ptr);
+	// ft_printf("Hex lower: %x\n", hex);
+	// ft_printf("Hex upper: %X\n", hex);
+
+	// printf("Pointer: %p\n", ptr);
+	// printf("Hex lower: %x\n", hex);
+	// printf("Hex upper: %X\n", hex);
+	
+	
 	int		a;
 	int		b;
 	char	*s;
