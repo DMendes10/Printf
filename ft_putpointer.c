@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putpointer.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diogo <diogo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: diomende <diomende@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 18:46:41 by diomende          #+#    #+#             */
-/*   Updated: 2025/05/03 19:18:45 by diogo            ###   ########.fr       */
+/*   Updated: 2025/05/05 13:03:57 by diomende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int	ft_putpointer(void *ptr, int base, char *set, unsigned int loopstoper)
+int	ft_putpointer(void *ptr, int base, char *set, unsigned int starter)
 {
 	int		i;
 	unsigned long long	plong;
@@ -21,15 +21,10 @@ int	ft_putpointer(void *ptr, int base, char *set, unsigned int loopstoper)
 	plong = (unsigned long long) ptr;
 	if (!ptr)
 		return (write (1, "(nil)", 5));
-	if (loopstoper == 0)
+	if (starter++ == 0)
 		i += write (1, "0x", 2);
-	// if (plong < base)
-	// 	return (putchar(set[plong]));
 	if (plong >= base)
-	{
-		i += ft_putpointer ((void *)(plong / base), base, set, loopstoper + 1);
-		// i += ft_putpointer ((void *)(plong % base), base, set);
-	}
+		i += ft_putpointer ((void *)(plong / base), base, set, starter);
 	i += ft_putchar (set[plong % base]);
 	return (i);
 }
