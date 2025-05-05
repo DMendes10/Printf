@@ -6,17 +6,18 @@
 /*   By: diomende <diomende@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 18:46:41 by diomende          #+#    #+#             */
-/*   Updated: 2025/05/05 13:03:57 by diomende         ###   ########.fr       */
+/*   Updated: 2025/05/05 17:22:55 by diomende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
-int	ft_putpointer(void *ptr, int base, char *set, unsigned int starter)
+int	ft_putpointer(void *ptr, unsigned long long base, char *set, \
+unsigned int starter)
 {
-	int		i;
+	int					i;
 	unsigned long long	plong;
-	
+
 	i = 0;
 	plong = (unsigned long long) ptr;
 	if (!ptr)

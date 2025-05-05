@@ -6,18 +6,17 @@
 /*   By: diomende <diomende@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 14:36:20 by diomende          #+#    #+#             */
-/*   Updated: 2025/05/05 12:45:22 by diomende         ###   ########.fr       */
+/*   Updated: 2025/05/05 17:22:58 by diomende         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	ft_putnbr(long n)
 {
 	int	i;
-	
-	i = 0;
 
+	i = 0;
 	if (n < 0)
 	{
 		i += ft_putchar('-');
